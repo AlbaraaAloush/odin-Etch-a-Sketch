@@ -18,7 +18,7 @@ function createGrid(size) {
 let container = document.querySelector(".container");
 container.addEventListener("mouseover", (event) => {
   if (event.target.matches(".inner-div")) { 
-    event.target.classList.add("hover-effect");
+    event.target.style.backgroundColor = `#${Math.floor(Math.random()*10000000).toString(16)}`;
   }
 });
 

@@ -1,10 +1,11 @@
 function createGrid(size) {
+  container.replaceChildren();
   let n = size * size;
   let divGridHeight = 100 / size;
   let gridDivWidth = 100 / size;
 
   for (let i = 0; i < n; i++) {
-    let gridDiv = document.createElement("div");
+    gridDiv = document.createElement("div");
     gridDiv.classList.add("inner-div");
     gridDiv.setAttribute(
       "style",
@@ -17,8 +18,17 @@ function createGrid(size) {
 let container = document.querySelector(".container");
 container.addEventListener("mouseover", (event) => {
   if (event.target.matches(".inner-div")) { 
-    event.target.classList.add("hover-effect")
+    event.target.classList.add("hover-effect");
   }
 });
+
+let sizeButton = document.querySelector(".sizeButton");
+
+sizeButton.addEventListener("click", () => {
+    let size = prompt("Enter grid size: ", '');
+
+    createGrid(size);
+});
+
 
 createGrid(10);
